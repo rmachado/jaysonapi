@@ -19,7 +19,7 @@ import {
   SerializerNotRegisteredError,
   TopLevelDocumentError,
 } from './errors';
-import { HasMany, BelongsTo } from './relationships';
+import { HasMany, BelongsTo, BelongsToMany } from './relationships';
 import DefaultRegistry from './registry';
 
 
@@ -266,6 +266,7 @@ export default function Serializer(
 export const Relationships = {
   hasMany: HasMany,
   belongsTo: BelongsTo,
+  belongsToMany: BelongsToMany,
 };
 
 export const Registry = DefaultRegistry();

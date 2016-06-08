@@ -106,3 +106,23 @@ export function HasMany(refOnRelation) {
 
   return parseHasMany;
 }
+
+export function BelongsToMany(refOnRelation) {
+  function parseBelongsToMany(relationSchema, refValue, potentialRelation) {
+    if (IsArray(potentialRelation)) {
+      return handleArrayParse(relationSchema, refValue, potentialRelation, parseBelongsToMany);
+    }
+
+    const refValueOnRelation = Get(potentialRelation, refOnRelation);
+
+    return generateRelation(
+      relationSchema.type,
+      relationSchema.ref,
+      Get(potentialRelation, relationSchema.ref)
+    );
+  }
+
+  parseBelongsToMany.type = 'BelongsToMany';
+
+  return parseBelongsToMany;
+}
