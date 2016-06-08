@@ -159,7 +159,7 @@ export default function Serializer(
 
     const resourceObject = {
       type,
-      [ref]: String(refValue),
+      id: String(refValue),
       attributes: IsEmpty(serializedAttributes) ? undefined : serializedAttributes,
       relationships: serializedRelationships,
       links: serializedLinks,
