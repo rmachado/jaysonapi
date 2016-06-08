@@ -12,7 +12,7 @@ function generateRelation(type, ref, refValue) {
   return {
     data: {
       type,
-      [ref]: String(refValue),
+      id: String(refValue),
     },
   };
 }
@@ -28,7 +28,7 @@ function handleArrayParse(schema, reference, potentialRelation, parseFn) {
     .omitBy(IsNull)
     .map(d => d.data)
     .uniqWith((c, cTo) => {
-      return c.type === cTo.type && Get(c, schema.ref) === Get(cTo, schema.ref);
+      return c.type === cTo.type && c.id === cTo.id;
     })
     .reduce((accum, d) => {
       accum.data.push(d);

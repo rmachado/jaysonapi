@@ -104,12 +104,13 @@ describe('Relationships', function () {
       var hasMany = HasMany(referenceAttribute);
 
       var result = hasMany(schema, referenceeData, relationshipData);
+      console.log(result)
 
       expect(result).to.be.an.object();
       expect(result.data).to.be.an.array();
       expect(result.data.length).to.equal(3);
       expect(result.data[0].type).to.be.a.string();
-      expect(result.data[0].uuid).to.be.a.string();
+      expect(result.data[0].id).to.be.a.string();
 
       done();
     });

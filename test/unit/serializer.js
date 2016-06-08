@@ -629,7 +629,7 @@ describe('Serializer', function () {
         expect(relationships.address.data).to.be.an.array();
         expect(relationships.address.data).to.be.length(2);
         expect(relationships.phone.data).to.be.an.object();
-        expect(relationships.phone.data.uuid).to.be.equal('99');
+        expect(relationships.phone.data.id).to.be.equal('99');
         expect(relationships.phone.data.type).to.be.equal('phone');
         // TODO(digia): Testing undefined attributes need to be it's own test.
         expect(relationships.phone.data.attributes).to.be.undefined();
